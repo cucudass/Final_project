@@ -169,6 +169,13 @@ Developed Features:
 - [x] OAuth2유저의 경우 일부 정보만 수정할 수 있도록, 화면단에서도 유저타입별로 수정버튼이 노출될 수 있도록 분기처리하였습니다.
 </details>
 <details>
+<summary>핵심기능 #6. REST Api 회원정보</summary>
+
+- [x] 시큐리티가 적용된 프로젝트여서 사용자타입이 2가지로 인가된 사용자의 정보를 꺼내쓰는 객체가 UserDetails와 OAuth2User로 나누어 져서 UserDetails, UserDetailsService도 커스텀해서 사용했습니다.
+- [x] 사용자의 정보 조회, 수정, 삭제는 REST 방식으로 구현하였습니다.
+- [x] OAuth2유저의 경우 일부 정보만 수정할 수 있도록, 화면단에서도 유저타입별로 수정버튼이 노출될 수 있도록 분기처리하였습니다.
+</details>
+<details>
 
 |<small>회원가입(일반/네이버)</small>|<small>비밀번호찾기/변경<small>|<small>아이디찾기</small>|
 |:-:|:-:|:-:|
