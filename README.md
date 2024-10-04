@@ -65,7 +65,7 @@ Developed Features:
 <details>
 <summary>핵심기능 #1. 출석이벤트 및 만근시 할인권 발행/문자전송</summary>
 
-![fuction001](https://github.com/rhjdev/geulbeotmall/assets/95993932/ed48456e-a80e-4fbb-8f4a-36d895d8f0bc)
+![fuction001](https://github.com/wander0000/Final_project/raw/develop/assets/scheduler_att.png)
 - [x] 스프링에서 제공되는 `Scheduler` 이용, @Scheduled와 @EnableScheduling 어노테이션에 cron 표기법을 이용해서 원하는 시간대에 원하는 기능이 실현될 수 있도록 구현하였습니다.
 - [x] `AuthenticationSuccessHandler`를 오버라이딩한 `CustomLoginSuccessHandler`에서 로그인한 유저의 오늘의 출석상태를 확인하여 첫 출석이면 포인트를 지급하고 쿠키를 생성하며, 프론트에서는 쿠키값을 확인하여 출석이벤트에 참여하였음을 알리는 Popup이 뜨도록 하고, '오늘은 더이상 보지 않기'를 check하면 쿠키값을 false로 설정하여 Popup이 뜨지 않도록 하였습니다.
 - [x] 매달 1일, 전월의 만근자를 조회하여 할인권을 발행하고, 할인권번호를 문자 API를 이용하여 문자로 발송하도록 했습니다.
@@ -73,7 +73,7 @@ Developed Features:
 <details>
 <summary>핵심기능 #2. 스케쥴러 : 생일자 쿠폰발행</summary>
 
-![fuction002](https://github.com/rhjdev/geulbeotmall/assets/95993932/42912cf3-1824-4c99-a6ac-01c9b098fd7b)
+![fuction002](https://github.com/wander0000/Final_project/raw/develop/assets/scheduler_birth.png)
 - [x] 스프링에서 제공되는 `Scheduler` 이용, @Scheduled와 @EnableScheduling 어노테이션에 cron 표기법을 이용해서 원하는 시간대에 원하는 기능이 실현될 수 있도록 구현하였습니다.
 - [x] 생일쿠폰은 발행할 때 사용가능 상태로 insert해서 예매시 바로 사용할 수 있도록 하였습니다.
 ```xml
@@ -102,7 +102,7 @@ Developed Features:
 <details>
 <summary>핵심기능 #3. 맴버십 및 포인트 적립/사용</summary>
 
-![fuction003](https://github.com/rhjdev/geulbeotmall/assets/95993932/b1555bac-bccc-4754-a74c-e4ab97a3a53d)
+![fuction003](https://github.com/wander0000/Final_project/raw/develop/assets/pthist.gif)
 - [x] 일반 로그인/소셜 로그인 구분 없이 모든 신규 회원은 `가입과 동시에` 등급:Welcome으로, 1,000원의 적립금을 적립 받습니다.
 - [x] `등급별`으로 예매시 적립금 혜택이 주어집니다. 쿠폰/할인권/포인트를 사용한 금액을 제외한 실결제금액에 대해 3~10%의 포인트가 적립됩니다.
 - [x] 회원은 `마이페이지`에서 자신의 적립금 적립/사용 상세 내역을 확인할 수 있습니다.
@@ -111,7 +111,7 @@ Developed Features:
 <details>
 <summary>핵심기능 #4. 예매취소</summary>
 
-![fuction004](https://github.com/rhjdev/geulbeotmall/assets/95993932/aed5de29-cbac-4619-b66c-648153d60b8b)
+![fuction004](https://github.com/wander0000/Final_project/raw/develop/assets/cancelprocedure.png)
 - [x] 예매 취소시 11가지 쿼리가 실행되어야 해서 `MySQL`의 프로시져 기능을 활용하였습니다.
 - [x] 예매정보테이블의 내용을 '예매'에서 '취소'로 변경하고, 결제 API를 이용하여 실결제금액이 반환되도록 하고, 결제 시 사용한 포인트와 점유한 좌석을 원복하고, 적립된 포인트 또한 반환되도록 하였습니다.
 - [x] 하나의 트랜젝션 안에서 작업이 수행되고 하나라도 오류가 나면 전체가 롤백되도록 작성했습니다.
@@ -119,7 +119,7 @@ Developed Features:
 <details>
 <summary>핵심기능 #5. ajax 이용한 동적 구현 및 페이징</summary>
 
-![fuction005](https://github.com/rhjdev/geulbeotmall/assets/95993932/5ec2b61a-36b8-458e-9ee8-0cd250dc7bb4)
+![fuction005](https://github.com/wander0000/Final_project/raw/develop/assets/pagingparam.png)
 - [x] 목록은 ajax를 이용하여 동적으로 구현하고, 세그먼트 기법 중 페이징을 제대로 작동하게 하기위하여 페이지 버튼에도 필터링과 페이징을 위한 인자를 배열값으로 저장하여 화면단이 구성되도록 function을 호출할 때 인자를 다시 Json으로 보낼 수 있는 형태로 변환하여 서버에 데이터를 요청하도록 하였습니다.
 - [x] `페이징`은 SQL쿼리에서 LIMIT와 OFFSET을 이용하여 구현하였습니다.
 ```xml
@@ -165,6 +165,8 @@ Developed Features:
 <details>
 <summary>핵심기능 #6. REST Api 회원정보</summary>
 
+![fuction006](https://github.com/wander0000/Final_project/raw/develop/assets/restapi.png)
+
 - [x] 시큐리티가 적용된 프로젝트여서 사용자타입이 2가지로 인가된 사용자의 정보를 꺼내쓰는 객체가 UserDetails와 OAuth2User로 나누어 져서 UserDetails, UserDetailsService도 커스텀해서 사용했습니다.
 - [x] 사용자의 정보 조회, 수정, 삭제는 REST 방식으로 구현하였습니다.
 - [x] OAuth2유저의 경우 일부 정보만 수정할 수 있도록, 화면단에서도 유저타입별로 수정버튼이 노출될 수 있도록 분기처리하였습니다.
@@ -178,15 +180,20 @@ Developed Features:
 </details>
 <details>
 
-|<small>회원가입(일반/네이버)</small>|<small>비밀번호찾기/변경<small>|<small>아이디찾기</small>|
+
+### 사용자 시나리오(시연영상)
+
+|<small>회원가입(일반)</small>|<small>회원가입(네이버)<small>|<small>비밀번호찾기/변경</small>|
 |:-:|:-:|:-:|
-|![003](https://github.com/wander0000/Final_project/raw/develop/assets/generate.gif)|![004](https://github.com/wander0000/Final_project/raw/develop/assets/findpw.gif)|![005](https://github.com/wander0000/Final_project/raw/develop/assets/findid.gif)|
-|<small><b>영화조회</b></small>|<small><b>영화스크랩</b></small>|<small><b>영화예매</b></small>|
-|![006](https://github.com/wander0000/Final_project/raw/develop/assets/getmovie.gif)|![007](https://github.com/wander0000/Final_project/raw/develop/assets/likemovie.gif)|![008](https://github.com/wander0000/Final_project/raw/develop/assets/bookmovie.gif)|
+|![003](https://github.com/wander0000/Final_project/raw/develop/assets/generate1.gif)|![004](https://github.com/wander0000/Final_project/raw/develop/assets/generate2.gif)|![005](https://github.com/wander0000/Final_project/raw/develop/assets/findpw.gif)|
+|<small><b>아이디찾기</b></small>|<small><b>영화조회</b></small>|<small><b>영화스크랩</b></small>|
+|![006](https://github.com/wander0000/Final_project/raw/develop/assets/findid.gif)|![007](https://github.com/wander0000/Final_project/raw/develop/assets/getmovie.gif)|![008](https://github.com/wander0000/Final_project/raw/develop/assets/likemovie.gif)|
+|<small><b>영화예매(카카오페이)</b></small>|<small><b>영화예매(토스페이)</b></small>|<small><b>영화예매(이니시스)</b></small>|
+|![009](https://github.com/wander0000/Final_project/raw/develop/assets/bookmovie_kakao.gif)|![010](https://github.com/wander0000/Final_project/raw/develop/assets/bookmovie_toss.gif)|![011](https://github.com/wander0000/Final_project/raw/develop/assets/bookmovie_ini.gif)|
 |<small><b>예매내역조회</b></small>|<small><b>예매취소</b></small>|<small><b>포인트이력조회</b></small>|
-|![009](https://github.com/wander0000/Final_project/raw/develop/assets/booklist.gif)|![010](https://github.com/wander0000/Final_project/raw/develop/assets/cancelmovie.gif)|![011](https://github.com/wander0000/Final_project/raw/develop/assets/pthislist.gif)|
+|![012](https://github.com/wander0000/Final_project/raw/develop/assets/booklist.gif)|![013](https://github.com/wander0000/Final_project/raw/develop/assets/cancelmovie.gif)|![014](https://github.com/wander0000/Final_project/raw/develop/assets/pthist.gif)|
 |<small><b>무비스토리</b></small>|<small><b>출석이벤트 문자API/쿠폰등록</b></small>|<small><b>탈퇴</b></small>|
-|![012](https://github.com/wander0000/Final_project/raw/develop/assets/moviestory.gif)|![013](https://github.com/wander0000/Final_project/raw/develop/assets/attendence.gif)|![014](https://github.com/wander0000/Final_project/raw/develop/assets/unsubscribe.gif)|
+|![012](https://github.com/wander0000/Final_project/raw/develop/assets/cancelmovie.gif)|![013](https://github.com/wander0000/Final_project/raw/develop/assets/attendence.gif)|![014](https://github.com/wander0000/Final_project/raw/develop/assets/unsubscribe.gif)|
 
 
 ### 🛠기술 스택
